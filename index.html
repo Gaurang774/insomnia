@@ -1,0 +1,1590 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sound Frequency-Based Sleep Aid Eyemask - Business Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0ea5e9;
+            --muted: #64748b;
+            --background: #f8fafc;
+            --surface: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: var(--background);
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            z-index: 50;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+            height: 60vh;
+        }
+        
+        .bento-main {
+            grid-row: 1 / -1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        
+        .bento-side-top,
+        .bento-side-bottom {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 4rem 0;
+        }
+        
+        .citation-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .citation-link:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        .pull-quote {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 1rem 1rem 0;
+            font-style: italic;
+            font-size: 1.125rem;
+        }
+        
+        .chart-container {
+            background: var(--surface);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--muted);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .toc-link:hover,
+        .toc-link.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(14, 165, 233, 0.05);
+        }
+        
+        .toc-link.sub {
+            font-size: 0.875rem;
+            padding-left: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                height: auto;
+            }
+            
+            .bento-main {
+                grid-row: auto;
+                height: 40vh;
+            }
+        }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .hero-gradient h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-gradient p {
+                font-size: 1rem;
+            }
+            
+            .bento-grid {
+                gap: 1rem;
+            }
+            
+            .bento-main {
+                height: auto;
+            }
+            
+            .executive-summary {
+                padding: 1.5rem;
+            }
+            
+            .chart-container {
+                padding: 1rem;
+            }
+            
+            .pull-quote {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Additional small screen adjustments */
+        @media (max-width: 640px) {
+            .hero-gradient h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-gradient p {
+                font-size: 0.9rem;
+            }
+            
+            .bento-grid {
+                grid-template-rows: auto auto auto;
+            }
+            
+            .executive-summary {
+                padding: 1rem;
+            }
+        }
+        
+        /* Prevent horizontal overflow */
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Table of Contents - Fixed Left -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="text-lg font-bold text-slate-900 mb-4">Table of Contents</h3>
+        <div class="space-y-1">
+          <a href="#executive-summary" class="toc-link">Executive Summary</a>
+          <a href="#problem-statement" class="toc-link">Problem Statement</a>
+          <a href="#solution" class="toc-link">The Solution</a>
+          <a href="#market-opportunity" class="toc-link">Market Opportunity</a>
+          <a href="#product-technology" class="toc-link">Product &amp; Technology</a>
+          <a href="#scientific-validation" class="toc-link sub">Scientific Validation</a>
+          <a href="#technical-implementation" class="toc-link sub">Technical Implementation</a>
+          <a href="#market-analysis" class="toc-link">Market Analysis</a>
+          <a href="#competitive-landscape" class="toc-link sub">Competitive Landscape</a>
+          <a href="#swot-analysis" class="toc-link sub">SWOT Analysis</a>
+          <a href="#marketing-strategy" class="toc-link">Marketing Strategy</a>
+          <a href="#operations" class="toc-link">Operations</a>
+          <a href="#financial-projections" class="toc-link">Financial Projections</a>
+          <a href="#team" class="toc-link">Management Team</a>
+          <a href="#funding" class="toc-link">Funding Requirements</a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-slate-200">
+        <div class="text-xs text-slate-500 mb-2">Key Metrics</div>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-600">Market Size</span>
+            <span class="font-semibold">$84.8B by 2027</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-600">Sleep Latency</span>
+            <span class="font-semibold">14.6 min avg</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-slate-600">Reduction</span>
+            <span class="font-semibold text-green-600">50%</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section with Bento Grid -->
+      <section class="relative">
+        <!-- Overlay for mobile TOC -->
+        <div id="toc-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+        <div class="container mx-auto px-6 py-12">
+          <div class="bento-grid">
+            <!-- Main Hero Panel -->
+            <div class="bento-main hero-gradient flex items-center justify-center relative">
+              <div class="absolute inset-0 opacity-20">
+                <img src="https://kimi-web-img.moonshot.cn/img/neurosciencenews.com/465c6666614b4fa685f7a14702c7495df0e28fbb.jpg" alt="Abstract visualization of brain waves during sleep" class="w-full h-full object-cover" size="wallpaper" aspect="wide" query="abstract brain waves sleep" referrerpolicy="no-referrer" data-modified="1" data-score="11589.00"/>
+              </div>
+              <div class="relative z-10 text-center text-white px-8">
+                <h1 class="serif text-5xl font-bold mb-6 leading-tight">
+                  <span class="italic">Sound Frequency-Based</span>
+                  <br/>
+                  Sleep Aid Eyemask
+                </h1>
+                <p class="text-xl text-slate-200 max-w-2xl mx-auto">
+                  Leveraging 5-8 Hz brainwave entrainment technology to reduce sleep latency by 50%
+                </p>
+              </div>
+            </div>
+
+            <!-- Side Panels -->
+            <div class="bento-side-top bg-gradient-to-br from-slate-50 to-slate-100 p-6 flex flex-col justify-center">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-slate-900 mb-2">14.6</div>
+                <div class="text-sm text-slate-600 uppercase tracking-wide">Minutes to Sleep</div>
+              </div>
+            </div>
+
+            <div class="bento-side-bottom bg-gradient-to-br from-blue-50 to-blue-100 p-6 flex flex-col justify-center">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-900 mb-2">50%</div>
+                <div class="text-sm text-blue-700 uppercase tracking-wide">Faster Sleep Onset</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Summary -->
+      <section id="executive-summary" class="container mx-auto px-6 py-12">
+        <div class="executive-summary">
+          <h2 class="serif text-3xl font-bold mb-6 text-slate-900">Executive Summary</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold mb-4">The Opportunity</h3>
+              <p class="text-slate-700 mb-4">
+                Insomnia and sleep disturbances affect millions worldwide, with traditional pharmacological solutions often causing undesirable side effects. Our innovative eyemask delivers <strong>5-8 Hz sound frequencies</strong>, scientifically proven to reduce sleep latency by 50%.
+              </p>
+              <p class="text-slate-700">
+                The global sleep aid market is projected to reach <a href="#ref-1" class="citation-link">$84.8 billion by 2027</a>, with increasing demand for non-invasive, drug-free solutions.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-4">Key Advantages</h3>
+              <ul class="space-y-2 text-slate-700">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                  <span><strong>Scientifically validated</strong> 5-8 Hz frequency technology</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                  <span><strong>Non-invasive, drug-free</strong> sleep solution</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                  <span><strong>Simple, user-friendly</strong> single-button operation</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                  <span><strong>Portable and comfortable</strong> eyemask design</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Problem Statement -->
+      <section id="problem-statement" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">The Problem: Addressing Insomnia</h2>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div class="text-3xl text-red-500 mb-4">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Widespread Issue</h3>
+            <p class="text-slate-600">
+              Insomnia and sleep disturbances affect a significant portion of the global population, exacerbated by modern lifestyles and stress.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div class="text-3xl text-orange-500 mb-4">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Current Solutions</h3>
+            <p class="text-slate-600">
+              Traditional pharmacological sleep aids often come with undesirable side effects and potential for dependency.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div class="text-3xl text-blue-500 mb-4">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">The Need</h3>
+            <p class="text-slate-600">
+              Clear demand for safe, effective, non-invasive, and drug-free alternatives to achieve restful sleep.
+            </p>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          &#34;Modern lifestyles, characterized by high stress, excessive screen time, and irregular schedules, exacerbate sleep problems, leading to diminished quality of life and reduced productivity.&#34;
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Solution -->
+      <section id="solution" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">The Solution: Sound Frequency Eyemask</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Innovative Technology</h3>
+            <p class="text-slate-700 mb-4">
+              Our solution is an <strong>innovative eyemask integrated with a sound emitter</strong> designed to deliver specific sound frequencies, primarily in the 5-8 Hz range. This device facilitates rapid sleep onset by leveraging the principle of brainwave entrainment.
+            </p>
+            <p class="text-slate-700 mb-6">
+              The eyemask format ensures ease of use, comfort, and portability, making it a convenient sleep aid for a wide range of users. The device features a simple, single-button control and an auto-cutoff mechanism.
+            </p>
+
+            <div class="bg-blue-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-blue-900 mb-3">Core Differentiator</h4>
+              <p class="text-blue-800">
+                <strong>Targeted use of 5-8 Hz sound frequency</strong>, scientifically validated to significantly reduce sleep latency, unlike generic white noise machines or general audio playback.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <img src="https://kimi-web-img.moonshot.cn/img/images.ctfassets.net/f294b5051611541f2e99600c3138252070628725.jpg" alt="Smart sleep mask with integrated audio technology" class="w-full rounded-lg mb-6" size="medium" aspect="wide" style="photo" query="smart sleep mask with speakers" referrerpolicy="no-referrer" data-modified="1" data-score="11585.00"/>
+
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-volume-up text-blue-500 mr-3"></i>
+                <span>5-8 Hz sound frequency delivery</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-moon text-blue-500 mr-3"></i>
+                <span>Light-blocking comfort</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-power-off text-blue-500 mr-3"></i>
+                <span>Single-button control</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-clock text-blue-500 mr-3"></i>
+                <span>Auto-cutoff feature</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Market Opportunity -->
+      <section id="market-opportunity" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Market Opportunity</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Target Market Segments</h3>
+            <div class="space-y-6">
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold text-lg">Primary Segment</h4>
+                <p class="text-slate-600">Adults with insomnia or sleep onset difficulties</p>
+              </div>
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold text-lg">Secondary Segment</h4>
+                <p class="text-slate-600">Wellness-focused individuals seeking optimal sleep hygiene</p>
+              </div>
+              <div class="border-l-4 border-purple-500 pl-4">
+                <h4 class="font-semibold text-lg">Tertiary Segment</h4>
+                <p class="text-slate-600">Frequent travelers and shift workers</p>
+              </div>
+              <div class="border-l-4 border-orange-500 pl-4">
+                <h4 class="font-semibold text-lg">Quaternary Segment</h4>
+                <p class="text-slate-600">Individuals seeking alternatives to medication</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Market Growth Projections</h3>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <div class="chart-container" style="min-height: 300px;">
+                <div id="marketGrowthChart"></div>
+              </div>
+              <p class="text-sm text-slate-600 mt-4">
+                The global sleep aid market is projected to reach <a href="#ref-1" class="citation-link">$84.8 billion by 2027</a>, with sound therapy and sleep masks showing strong growth potential.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Product &amp; Technology -->
+      <section id="product-technology" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Product &amp; Technology</h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl font-semibold mb-6">Core Technology: 5-8 Hz Brainwave Entrainment</h3>
+            <p class="text-slate-700 mb-4">
+              The core technological principle underpinning our sleep aid device is the application of sound frequencies within the <strong>5-8 Hz range</strong> to facilitate and expedite the process of falling asleep. This approach leverages <strong>brainwave entrainment</strong>, where external stimuli can influence the brain&#39;s electrical activity.
+            </p>
+            <p class="text-slate-700 mb-6">
+              The 5-8 Hz range corresponds to the <strong>theta brainwave state</strong>, typically associated with light sleep, meditation, and the transitional phase between wakefulness and sleep.
+            </p>
+
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6">
+              <h4 class="font-semibold text-slate-900 mb-3">Technical Implementation</h4>
+              <ul class="space-y-2 text-slate-700">
+                <li class="flex items-start">
+                  <i class="fas fa-microchip text-blue-500 mt-1 mr-3"></i>
+                  <span>Small speaker or transducer strategically placed within eyemask</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-bone text-blue-500 mt-1 mr-3"></i>
+                  <span><strong>Bone conduction technology</strong> for direct sound delivery</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-cog text-blue-500 mt-1 mr-3"></i>
+                  <span>Microcontroller with DAC for 5-8 Hz signal generation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <h4 class="font-semibold mb-4">Brainwave States</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm">Beta (Awake)</span>
+                  <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">14-30 Hz</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm">Alpha (Relaxed)</span>
+                  <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">8-13 Hz</span>
+                </div>
+                <div class="flex justify-between items-center bg-blue-50 p-2 rounded">
+                  <span class="text-sm font-semibold">Theta (Sleep)</span>
+                  <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded font-bold">5-8 Hz</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm">Delta (Deep Sleep)</span>
+                  <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">0.5-4 Hz</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-xl">
+              <h4 class="font-semibold text-green-900 mb-3">Key Benefits</h4>
+              <ul class="space-y-2 text-green-800 text-sm">
+                <li>• Non-invasive, drug-free</li>
+                <li>• Scientifically validated</li>
+                <li>• Portable and comfortable</li>
+                <li>• Easy to use</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scientific Validation -->
+        <div id="scientific-validation" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-6">Scientific Validation</h3>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Research Findings</h4>
+                <p class="text-slate-700 mb-4">
+                  A key study published on <a href="https://www.researchgate.net" class="citation-link">ResearchGate</a> provides compelling evidence for the 5-8 Hz approach. The research investigated a sound-based sleep inducer emitting frequencies within this range.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h5 class="font-semibold text-blue-900 mb-2">Key Results</h5>
+                  <ul class="text-blue-800 space-y-1">
+                    <li>• <strong>50% reduction</strong> in time to fall asleep</li>
+                    <li>• Average sleep latency decreased to <strong>14.6 minutes</strong></li>
+                    <li>• Correlation with <strong>REM sleep brainwave activity</strong></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <div class="chart-container">
+                  <div id="efficacyChart"></div>
+                </div>
+                <p class="text-sm text-slate-600 mt-4">
+                  Study results showing significant reduction in sleep latency with 5-8 Hz sound frequency application.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div id="technical-implementation">
+          <h3 class="text-2xl font-semibold mb-6">Technical Implementation</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <div class="text-2xl text-blue-500 mb-4">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <h4 class="font-semibold mb-3">Sound Generation</h4>
+              <p class="text-slate-600 text-sm">
+                Microcontroller programmed to produce precise 5-8 Hz sine wave, converted via DAC and amplified for optimal delivery.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <div class="text-2xl text-green-500 mb-4">
+                <i class="fas fa-headphones"></i>
+              </div>
+              <h4 class="font-semibold mb-3">Bone Conduction</h4>
+              <p class="text-slate-600 text-sm">
+                Transducers transmit sound vibrations directly through skull bones to inner ear, ensuring comfort and effectiveness.
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <div class="text-2xl text-purple-500 mb-4">
+                <i class="fas fa-battery-three-quarters"></i>
+              </div>
+              <h4 class="font-semibold mb-3">Power Management</h4>
+              <p class="text-slate-600 text-sm">
+                Rechargeable battery with auto-cutoff feature after predetermined duration (5-30 minutes), optimized for power efficiency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Market Analysis -->
+      <section id="market-analysis" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Market Analysis</h2>
+
+        <div class="mb-12">
+          <h3 class="text-2xl font-semibold mb-6">Sleep Aid Industry Overview</h3>
+          <p class="text-slate-700 mb-6">
+            The sleep aid industry is substantial and experiencing consistent growth, driven by increasing global awareness of the importance of sleep for overall health and well-being. The market encompasses a wide range of products, from traditional mattresses to high-tech devices incorporating sound, light, and biometric feedback.
+          </p>
+
+          <div class="bg-gradient-to-r from-slate-50 to-slate-100 p-8 rounded-xl">
+            <h4 class="text-lg font-semibold mb-4">Market Trends</h4>
+            <div class="grid md:grid-cols-2 gap-6">
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-arrow-up text-green-500 mt-1 mr-3"></i>
+                  <span class="text-slate-700">Growing demand for <strong>non-pharmacological solutions</strong></span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-chart-line text-blue-500 mt-1 mr-3"></i>
+                  <span class="text-slate-700">Trend towards <strong>personalized sleep technology</strong></span>
+                </li>
+              </ul>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-leaf text-green-500 mt-1 mr-3"></i>
+                  <span class="text-slate-700">Increasing preference for <strong>sustainable materials</strong></span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-mobile-alt text-purple-500 mt-1 mr-3"></i>
+                  <span class="text-slate-700">Integration with <strong>mobile apps and wearables</strong></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitive Landscape -->
+        <div id="competitive-landscape" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-6">Competitive Landscape</h3>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Direct Competitors</h4>
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                  <h5 class="font-semibold text-slate-900">Manta SOUND Sleep Mask</h5>
+                  <p class="text-sm text-slate-600 mb-2">Bluetooth speakers, 100% blackout, 20-hour battery</p>
+                  <div class="text-xs text-red-600">Weakness: Lacks targeted sleep induction technology</div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                  <h5 class="font-semibold text-slate-900">Bía Sleep Smart Mask</h5>
+                  <p class="text-sm text-slate-600 mb-2">fNIRS brain measurement, bone-conduction audio</p>
+                  <div class="text-xs text-red-600">Weakness: Higher complexity and cost</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold mb-4">Indirect Competitors</h4>
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                  <h5 class="font-semibold text-slate-900">General Sleep Sound Machines</h5>
+                  <p class="text-sm text-slate-600 mb-2">White noise, nature sounds, various soundscapes</p>
+                  <div class="text-xs text-red-600">Weakness: Not wearable, no targeted frequency</div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                  <h5 class="font-semibold text-slate-900">Sleep Headphones/Headbands</h5>
+                  <p class="text-sm text-slate-600 mb-2">Thin speakers, audio playback, noise cancellation</p>
+                  <div class="text-xs text-red-600">Weakness: Primarily for audio playback</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SWOT Analysis -->
+        <div id="swot-analysis">
+          <h3 class="text-2xl font-semibold mb-6">SWOT Analysis</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+              <h4 class="font-semibold text-green-900 mb-4 flex items-center">
+                <i class="fas fa-plus-circle mr-2"></i>
+                Strengths
+              </h4>
+              <ul class="space-y-2 text-green-800 text-sm">
+                <li>• Scientifically validated 5-8 Hz technology</li>
+                <li>• Non-invasive, drug-free solution</li>
+                <li>• Simple, user-friendly design</li>
+                <li>• Portable eyemask format</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-50 p-6 rounded-xl border border-red-200">
+              <h4 class="font-semibold text-red-900 mb-4 flex items-center">
+                <i class="fas fa-minus-circle mr-2"></i>
+                Weaknesses
+              </h4>
+              <ul class="space-y-2 text-red-800 text-sm">
+                <li>• New and unproven brand</li>
+                <li>• Efficacy may vary among individuals</li>
+                <li>• Sound may be irritating to some</li>
+                <li>• Limited features in initial version</li>
+              </ul>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+              <h4 class="font-semibold text-blue-900 mb-4 flex items-center">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Opportunities
+              </h4>
+              <ul class="space-y-2 text-blue-800 text-sm">
+                <li>• Large and growing sleep aid market</li>
+                <li>• Preference for natural solutions</li>
+                <li>• Future iterations with personalization</li>
+                <li>• Strategic partnerships</li>
+              </ul>
+            </div>
+
+            <div class="bg-orange-50 p-6 rounded-xl border border-orange-200">
+              <h4 class="font-semibold text-orange-900 mb-4 flex items-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Threats
+              </h4>
+              <ul class="space-y-2 text-orange-800 text-sm">
+                <li>• Established competitors</li>
+                <li>• Rapid technological advancements</li>
+                <li>• Low-cost imitators</li>
+                <li>• Consumer skepticism</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Marketing Strategy -->
+      <section id="marketing-strategy" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Marketing and Sales Strategy</h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl font-semibold mb-6">Positioning and Branding</h3>
+            <p class="text-slate-700 mb-6">
+              The product will be positioned as a <strong>scientifically grounded, effective, and user-friendly solution</strong> for individuals seeking to fall asleep faster and improve their sleep quality naturally. The branding will emphasize trust, innovation, and well-being.
+            </p>
+
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6">
+              <h4 class="font-semibold text-slate-900 mb-3">Key Messages</h4>
+              <ul class="space-y-2 text-slate-700">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>Unique 5-8 Hz technology with research-backed efficacy</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>50% reduction in time to fall asleep</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>Convenient eyemask design with single-button control</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <h4 class="font-semibold mb-4">Target Audience</h4>
+              <div class="space-y-3">
+                <div class="text-sm">
+                  <div class="font-semibold text-slate-900">Primary</div>
+                  <div class="text-slate-600">Adults with sleep difficulties</div>
+                </div>
+                <div class="text-sm">
+                  <div class="font-semibold text-slate-900">Secondary</div>
+                  <div class="text-slate-600">Wellness-focused individuals</div>
+                </div>
+                <div class="text-sm">
+                  <div class="font-semibold text-slate-900">Tertiary</div>
+                  <div class="text-slate-600">Frequent travelers</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-xl">
+              <h4 class="font-semibold text-green-900 mb-3">Brand Values</h4>
+              <div class="space-y-2 text-green-800 text-sm">
+                <div>• Scientific Validation</div>
+                <div>• User Experience</div>
+                <div>• Health &amp; Wellness</div>
+                <div>• Innovation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Marketing Channels</h3>
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Digital Marketing</h4>
+                <p class="text-sm text-slate-600">SEO, PPC, content marketing, social media targeting wellness and sleep audiences</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Influencer Marketing</h4>
+                <p class="text-sm text-slate-600">Collaborations with health, wellness, and sleep influencers for authentic reviews</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Public Relations</h4>
+                <p class="text-sm text-slate-600">Media coverage in health, wellness, and tech publications</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Sales Strategy</h3>
+            <div class="space-y-4">
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-2">Direct-to-Consumer (DTC)</h4>
+                <p class="text-sm text-blue-800">Primary sales through dedicated e-commerce website for brand control and data collection</p>
+              </div>
+
+              <div class="bg-green-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-green-900 mb-2">Online Marketplaces</h4>
+                <p class="text-sm text-green-800">Expansion to Amazon and other major platforms for broader reach</p>
+              </div>
+
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-purple-900 mb-2">Specialty Retail</h4>
+                <p class="text-sm text-purple-800">Partnerships with health, wellness, and sleep specialty retailers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Operations -->
+      <section id="operations" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Operations Plan</h2>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Manufacturing and Supply Chain</h3>
+            <p class="text-slate-700 mb-6">
+              Manufacturing will be outsourced to a <strong>contract manufacturer (CM) with expertise in producing wearable electronics and soft goods</strong>. A thorough due diligence process will ensure quality standards, ethical labor practices, and cost-effectiveness.
+            </p>
+
+            <div class="bg-slate-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-slate-900 mb-3">Key Components</h4>
+              <ul class="space-y-2 text-slate-700 text-sm">
+                <li>• Speakers/micro-transducers</li>
+                <li>• Microcontrollers and batteries</li>
+                <li>• Fabric materials and padding</li>
+                <li>• Packaging and accessories</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Quality Control and Testing</h3>
+            <p class="text-slate-700 mb-6">
+              Rigorous quality control processes will be implemented at every stage, from component sourcing to final product assembly and packaging.
+            </p>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Incoming QC</h4>
+                <p class="text-sm text-slate-600">Inspection of raw materials and components from suppliers</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">In-process QC</h4>
+                <p class="text-sm text-slate-600">Monitoring and testing during manufacturing process</p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Final QC</h4>
+                <p class="text-sm text-slate-600">Comprehensive testing of finished products</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl">
+          <h3 class="text-2xl font-semibold mb-6">Intellectual Property Protection</h3>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="text-3xl text-blue-500 mb-3">
+                <i class="fas fa-patent"></i>
+              </div>
+              <h4 class="font-semibold text-slate-900 mb-2">Patents</h4>
+              <p class="text-sm text-slate-600">Utility and design patents covering unique aspects of the device</p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-3xl text-green-500 mb-3">
+                <i class="fas fa-trademark"></i>
+              </div>
+              <h4 class="font-semibold text-slate-900 mb-2">Trademarks</h4>
+              <p class="text-sm text-slate-600">Brand name, logo, and distinctive product names</p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-3xl text-purple-500 mb-3">
+                <i class="fas fa-user-secret"></i>
+              </div>
+              <h4 class="font-semibold text-slate-900 mb-2">Trade Secrets</h4>
+              <p class="text-sm text-slate-600">Proprietary manufacturing processes and algorithms</p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-3xl text-orange-500 mb-3">
+                <i class="fas fa-copyright"></i>
+              </div>
+              <h4 class="font-semibold text-slate-900 mb-2">Copyrights</h4>
+              <p class="text-sm text-slate-600">Software code, website design, marketing materials</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Financial Projections -->
+      <section id="financial-projections" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Financial Projections</h2>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Revenue Model</h3>
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
+              <h4 class="font-semibold text-slate-900 mb-4">Primary Revenue Stream</h4>
+              <p class="text-slate-700 mb-4">
+                Direct sales of the sound frequency-based sleep aid eyemask to consumers through e-commerce platform and online marketplaces.
+              </p>
+
+              <h4 class="font-semibold text-slate-900 mb-3">Future Revenue Streams</h4>
+              <ul class="space-y-2 text-slate-600 text-sm">
+                <li>• Accessories (replacement covers, carrying cases, charging docks)</li>
+                <li>• Subscription services for advanced features</li>
+                <li>• B2B sales to corporate wellness programs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Sales Forecast</h3>
+            <div class="chart-container">
+              <div id="salesForecastChart"></div>
+            </div>
+            <p class="text-sm text-slate-600 mt-4">
+              Conservative, moderate, and aggressive scenarios based on market penetration and adoption rates.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900 mb-4">Expense Budget</h4>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• Research and Development</li>
+              <li>• Manufacturing and Tooling</li>
+              <li>• Marketing and Sales</li>
+              <li>• Operations and Logistics</li>
+              <li>• General and Administrative</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900 mb-4">Profitability Goals</h4>
+            <div class="space-y-3">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-600">Year 2-3</div>
+                <div class="text-sm text-slate-600">Profitability Target</div>
+              </div>
+              <div class="text-center">
+                <div class="text-lg font-semibold text-blue-600">40%+</div>
+                <div class="text-sm text-slate-600">Gross Margin</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <h4 class="font-semibold text-slate-900 mb-4">Cash Flow Management</h4>
+            <p class="text-slate-600 text-sm mb-3">
+              Monthly cash flow projections for first two years to manage liquidity and working capital.
+            </p>
+            <div class="text-center">
+              <div class="text-lg font-semibold text-purple-600">18-24 mo</div>
+              <div class="text-sm text-slate-600">Runway to Self-Sustainability</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Management Team -->
+      <section id="team" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Management Team</h2>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Key Personnel</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Chief Executive Officer (CEO)</h4>
+                <p class="text-slate-600 text-sm mb-3">Overall strategy, vision, fundraising, and leadership</p>
+                <div class="text-xs text-slate-500">Experience: Consumer electronics, health tech, startup leadership</div>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Chief Technology Officer (CTO)</h4>
+                <p class="text-slate-600 text-sm mb-3">Product development, R&amp;D, technical implementation</p>
+                <div class="text-xs text-slate-500">Experience: Wearable tech, audio engineering, IoT devices</div>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Chief Marketing Officer (CMO)</h4>
+                <p class="text-slate-600 text-sm mb-3">Marketing, branding, sales, customer acquisition</p>
+                <div class="text-xs text-slate-500">Experience: DTC brands, wellness products, digital marketing</div>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h4 class="font-semibold text-slate-900 mb-2">Operations Manager</h4>
+                <p class="text-slate-600 text-sm mb-3">Supply chain, logistics, quality control, customer service</p>
+                <div class="text-xs text-slate-500">Experience: Manufacturing, operations, consumer goods</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Advisory Board</h3>
+            <p class="text-slate-700 mb-6">
+              An advisory board composed of experts in sleep medicine, neuroscience, acoustics, consumer electronics, and business strategy will provide invaluable guidance and credibility.
+            </p>
+
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+              <h4 class="font-semibold text-slate-900 mb-4">Expertise Areas</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center">
+                  <div class="text-2xl text-blue-500 mb-2">
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <div class="text-sm font-semibold">Sleep Medicine</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl text-green-500 mb-2">
+                    <i class="fas fa-microscope"></i>
+                  </div>
+                  <div class="text-sm font-semibold">Neuroscience</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl text-purple-500 mb-2">
+                    <i class="fas fa-volume-up"></i>
+                  </div>
+                  <div class="text-sm font-semibold">Acoustics</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl text-orange-500 mb-2">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="text-sm font-semibold">Business Strategy</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 p-6 bg-slate-50 rounded-lg">
+              <h4 class="font-semibold text-slate-900 mb-3">Benefits</h4>
+              <ul class="space-y-2 text-slate-600 text-sm">
+                <li>• Product refinement guidance</li>
+                <li>• Scientific validation support</li>
+                <li>• Market strategy insights</li>
+                <li>• Professional network access</li>
+                <li>• Investor credibility enhancement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Funding Requirements -->
+      <section id="funding" class="container mx-auto px-6 py-12">
+        <h2 class="serif text-4xl font-bold mb-8 text-slate-900">Funding Requirements</h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl font-semibold mb-6">Funding Request and Use of Funds</h3>
+            <p class="text-slate-700 mb-6">
+              We are seeking <strong>$500,000 in seed funding</strong> to cover initial startup costs and operational expenses until the company becomes self-sustaining. This investment will enable us to achieve key milestones including product launch and initial market penetration.
+            </p>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
+              <h4 class="font-semibold text-slate-900 mb-4">Use of Funds Breakdown</h4>
+              <div class="chart-container">
+                <div id="fundingAllocationChart"></div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-3">Key Milestones</h4>
+                <ul class="space-y-2 text-blue-800 text-sm">
+                  <li>• Finalize product design and prototyping</li>
+                  <li>• Complete manufacturing setup</li>
+                  <li>• Launch marketing campaigns</li>
+                  <li>• Achieve first 1,000 units sold</li>
+                  <li>• Establish distribution channels</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-900 mb-3">Investment Highlights</h4>
+                <ul class="space-y-2 text-green-800 text-sm">
+                  <li>• Scientifically validated technology</li>
+                  <li>• Large and growing target market</li>
+                  <li>• Experienced management team</li>
+                  <li>• Clear path to profitability</li>
+                  <li>• Strong competitive differentiation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <h4 class="font-semibold text-slate-900 mb-4 text-center">Funding Request</h4>
+              <div class="text-center">
+                <div class="text-4xl font-bold text-blue-600 mb-2">$500,000</div>
+                <div class="text-sm text-slate-600 mb-4">Seed Funding</div>
+                <div class="text-xs text-slate-500">18-24 month runway</div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+              <h4 class="font-semibold text-slate-900 mb-4">Financial Projections</h4>
+              <div class="space-y-3">
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-600">Break-even</span>
+                  <span class="font-semibold">Month 18</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-600">ROI Target</span>
+                  <span class="font-semibold text-green-600">5x - 10x</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-slate-600">Exit Timeline</span>
+                  <span class="font-semibold">5-7 years</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-xl">
+              <h4 class="font-semibold text-slate-900 mb-3">Investment Opportunity</h4>
+              <p class="text-slate-600 text-sm mb-4">
+                Join us in revolutionizing sleep technology with scientifically-backed, non-invasive solutions.
+              </p>
+              <div class="text-center">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
+                  Invest Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          &#34;This investment opportunity combines cutting-edge neuroscience with proven market demand, offering investors a chance to participate in the growing wellness technology sector with a product that has demonstrated 50% improvement in sleep onset times.&#34;
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold mb-4">Sound Frequency Sleep Aid</h3>
+              <p class="text-slate-300 text-sm">
+                Leveraging 5-8 Hz brainwave entrainment technology to help people fall asleep faster and improve sleep quality naturally.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-4">Quick Links</h4>
+              <div class="space-y-2 text-sm">
+                <a href="#executive-summary" class="block text-slate-300 hover:text-white transition-colors">Executive Summary</a>
+                <a href="#product-technology" class="block text-slate-300 hover:text-white transition-colors">Product &amp; Technology</a>
+                <a href="#market-analysis" class="block text-slate-300 hover:text-white transition-colors">Market Analysis</a>
+                <a href="#financial-projections" class="block text-slate-300 hover:text-white transition-colors">Financial Projections</a>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-4">Contact</h4>
+              <div class="space-y-2 text-sm text-slate-300">
+                <div>For investment inquiries</div>
+                <div>hello@sleepaid.tech</div>
+                <div>+1 (555) 123-4567</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-700 mt-8 pt-8 text-center text-sm text-slate-400">
+            <p>© 2024 Sound Frequency Sleep Aid. All rights reserved. | Patent Pending</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Initialize charts when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Market Growth Chart
+            const marketGrowthChart = echarts.init(document.getElementById('marketGrowthChart'));
+            marketGrowthChart.setOption({
+                title: {
+                    text: 'Global Sleep Aid Market Growth',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: {c} billion'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2020', '2023', '2027'],
+                    axisLabel: {
+                        fontSize: 10
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'Billion USD',
+                    nameTextStyle: {
+                        fontSize: 10
+                    },
+                    axisLabel: {
+                        fontSize: 10,
+                        formatter: '{value}B'
+                    }
+                },
+                series: [{
+                    data: [65.1, 75.6, 84.8],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        width: 3,
+                        color: '#0ea5e9'
+                    },
+                    itemStyle: {
+                        color: '#0ea5e9'
+                    },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(14, 165, 233, 0.3)'
+                            }, {
+                                offset: 1, color: 'rgba(14, 165, 233, 0.05)'
+                            }]
+                        }
+                    }
+                }],
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '15%',
+                    top: '25%'
+                }
+            });
+
+            // Efficacy Chart
+            const efficacyChart = echarts.init(document.getElementById('efficacyChart'));
+            efficacyChart.setOption({
+                title: {
+                    text: 'Sleep Latency Reduction with 5-8Hz',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    formatter: '{b}: {c} minutes'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Without Device', 'With Device'],
+                    axisLabel: {
+                        fontSize: 10
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'Minutes',
+                    nameTextStyle: {
+                        fontSize: 10
+                    },
+                    axisLabel: {
+                        fontSize: 10
+                    },
+                    max: 35
+                },
+                series: [{
+                    data: [29.2, 14.6],
+                    type: 'bar',
+                    barWidth: '40%',
+                    itemStyle: {
+                        color: function(params) {
+                            return params.dataIndex === 0 ? '#ef4444' : '#10b981';
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c} min',
+                        fontSize: 12
+                    }
+                }],
+                grid: {
+                    left: '15%',
+                    right: '5%',
+                    bottom: '15%',
+                    top: '25%'
+                }
+            });
+
+            // Sales Forecast Chart
+            const salesForecastChart = echarts.init(document.getElementById('salesForecastChart'));
+            salesForecastChart.setOption({
+                title: {
+                    text: '3-Year Sales Forecast',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Conservative', 'Moderate', 'Aggressive'],
+                    bottom: 0,
+                    textStyle: {
+                        fontSize: 10
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Year 1', 'Year 2', 'Year 3'],
+                    axisLabel: {
+                        fontSize: 10
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: 'Revenue (USD)',
+                    nameTextStyle: {
+                        fontSize: 10
+                    },
+                    axisLabel: {
+                        fontSize: 10,
+                        formatter: function(value) {
+                            if (value >= 1000000) {
+                                return (value / 1000000).toFixed(1) + 'M';
+                            }
+                            return value;
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'Conservative',
+                        type: 'line',
+                        data: [500000, 1200000, 2500000],
+                        lineStyle: {
+                            width: 2
+                        }
+                    },
+                    {
+                        name: 'Moderate',
+                        type: 'line',
+                        data: [800000, 2000000, 4000000],
+                        lineStyle: {
+                            width: 2
+                        }
+                    },
+                    {
+                        name: 'Aggressive',
+                        type: 'line',
+                        data: [1200000, 3000000, 6000000],
+                        lineStyle: {
+                            width: 2
+                        }
+                    }
+                ],
+                grid: {
+                    left: '10%',
+                    right: '5%',
+                    bottom: '25%',
+                    top: '25%'
+                }
+            });
+
+            // Funding Allocation Chart
+            const fundingAllocationChart = echarts.init(document.getElementById('fundingAllocationChart'));
+            fundingAllocationChart.setOption({
+                title: {
+                    text: 'Funding Allocation',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c} ({d}%)'
+                },
+                series: [
+                    {
+                        type: 'pie',
+                        radius: '70%',
+                        center: ['50%', '50%'],
+                        data: [
+                            {value: 150000, name: 'R&D'},
+                            {value: 200000, name: 'Manufacturing'},
+                            {value: 100000, name: 'Marketing'},
+                            {value: 30000, name: 'Operations'},
+                            {value: 20000, name: 'Legal & IP'}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        label: {
+                            fontSize: 10,
+                            formatter: '{b}: {d}%'
+                        }
+                    }
+                ]
+            });
+
+            // Handle window resize for charts
+            window.addEventListener('resize', function() {
+                marketGrowthChart.resize();
+                efficacyChart.resize();
+                salesForecastChart.resize();
+                fundingAllocationChart.resize();
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active TOC link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function updateActiveTocLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveTocLink);
+        updateActiveTocLink(); // Initial call
+        
+        // Mobile TOC toggle (if needed)
+        const tocToggle = document.createElement('button');
+        tocToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        tocToggle.className = 'fixed top-4 left-4 z-50 bg-white p-3 rounded-lg shadow-lg lg:hidden';
+        document.body.appendChild(tocToggle);
+        
+        const toc = document.querySelector('.toc-fixed');
+        const tocOverlay = document.getElementById('toc-overlay');
+        const body = document.body;
+        
+        function openToc() {
+            toc.classList.add('open');
+            tocOverlay.classList.remove('hidden');
+            body.classList.add('overflow-hidden');
+        }
+        
+        function closeToc() {
+            toc.classList.remove('open');
+            tocOverlay.classList.add('hidden');
+            body.classList.remove('overflow-hidden');
+        }
+        
+        tocToggle.addEventListener('click', function() {
+            if (toc.classList.contains('open')) {
+                closeToc();
+            } else {
+                openToc();
+            }
+        });
+        
+        // Close TOC when overlay is clicked
+        tocOverlay.addEventListener('click', closeToc);
+        
+        // Close TOC when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth < 1024 && 
+                toc.classList.contains('open') && 
+                !toc.contains(event.target) && 
+                event.target !== tocToggle) {
+                closeToc();
+            }
+        });
+        
+        // Close TOC when window is resized to desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                closeToc();
+            }
+        });
+    </script>
+  
+
+</body></html>
